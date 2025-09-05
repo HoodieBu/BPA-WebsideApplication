@@ -1,0 +1,523 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #6495ED; /* Cornflower Blue */
+  height: 70px;
+  display: flex;
+  align-items: center;  /* Center items vertically */
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.header-left .logo {
+  height: 70px; /* fits nicely inside 70px header */
+  width: auto;
+  display: block;
+}
+
+/* Navigation links */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* center text vertically */
+  gap: 40px;
+}
+
+.header-center a {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  color: #FAF9F6; /* Off-white */
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.header-center a:hover {
+  color: #FFBF00; /* Golden hover */
+}
+
+/* underline effect */
+.header-center a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #FFBF00;
+  transition: width 0.3s ease-in-out;
+}
+
+.header-center a:hover::after {
+  width: 100%;
+}
+
+/* Profile */
+.header-right {
+  display: flex;
+  align-items: center; /* center vertically */
+  position: relative;
+}
+
+.profile {
+  position: relative;
+}
+
+.profile img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.2s ease-in-out;
+}
+
+.profile img:hover {
+  border: 2px solid #FFBF00;
+}
+
+/* Auth Buttons */
+.auth-btn {
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent; /* keep consistent button sizing */
+  box-sizing: border-box; /* ensures border counts toward total size */
+}
+
+/* Login button */
+.login-btn {
+  background-color: transparent;
+  color: #FAF9F6;
+  border-color: #FAF9F6;
+}
+
+.login-btn:hover {
+  background-color: #FAF9F6;
+  color: #6495ED;
+}
+
+/* Signup button */
+.signup-btn {
+  background-color: #FFBF00;
+  color: #333;
+  border-color: #FFBF00; /* ensures equal size */
+}
+
+.signup-btn:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  background: linear-gradient(145deg, #6495ED,#FFBF00);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-btn {
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.hero-btn.primary {
+  background: #FFBF00;
+  color: #333;
+}
+
+.hero-btn.primary:hover {
+  background: #e0a800;
+  color: #fff;
+}
+
+.hero-btn.secondary {
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.hero-btn.secondary:hover {
+  background: #fff;
+  color: #6495ED;
+}
+
+/* Hero Image */
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Main Split Container */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Left side (login area) */
+.left {
+  flex: 1;
+  background: #FAF9F6;
+  position: relative;
+
+  /* Center the login content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo stays at top-left */
+.login-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.login-logo img {
+  height: 70px;
+}
+
+/* Login content (centered) */
+.login-content {
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.login-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.login-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+.login-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.login-content input:focus {
+  border: 1px solid #007BFF;
+}
+
+.login-content button {
+  width: 100%;
+  padding: 12px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-content button:hover {
+  background: #0056b3;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider:not(:empty)::before {
+  margin-right: .75em;
+}
+.divider:not(:empty)::after {
+  margin-left: .75em;
+}
+
+/* Google button */
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:hover {
+  background: #f1f1f1;
+  border-color: #999;
+}
+
+.login-content p {
+  margin-top: 15px;
+  text-align: center;
+  color: #555;
+}
+
+.login-content a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.login-content a:hover {
+  text-decoration: underline;
+}
+
+/* Right side (banner image) */
+.right {
+  flex: 1;
+}
+
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    flex: none;
+    width: 100%;
+    height: 50%;
+  }
+
+  .login-logo {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* Main Split Layout */
+.profile-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Left side (form area) */
+.left {
+  flex: 1;
+  background: linear-gradient(135deg, #f0f4ff, #e6ebf5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  position: relative;
+}
+
+/* Logo top-left */
+.form-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.form-logo img {
+  height: 40px;
+}
+
+/* Form content */
+.form-content {
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.form-content label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-content input,
+.form-content textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-content input:focus,
+.form-content textarea:focus {
+  border-color: #007BFF;
+}
+
+.form-content textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-content button {
+  width: 100%;
+  padding: 12px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.form-content button:hover {
+  background: #0056b3;
+}
+
+/* Profile Picture Upload */
+.profile-pic-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007BFF;
+  margin-bottom: 10px;
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: #e2e2e2;
+  border-color: #999;
+}
+
+/* Right side (banner image) */
+.right {
+  flex: 1;
+}
+
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    flex: none;
+    width: 100%;
+    height: 50%;
+  }
+
+  .form-logo {
+    top: 10px;
+    left: 10px;
+  }
+}
