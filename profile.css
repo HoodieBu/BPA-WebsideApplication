@@ -1,0 +1,217 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #6495ED;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent page scroll */
+}
+
+/* Smooth transition for load */
+.page-transition {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.page-transition.loaded {
+  opacity: 1;
+}
+
+/* Profile container (smaller + fits screen height) */
+.profile-container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+  max-width: 450px;
+  width: 90%;
+  max-height: 90vh;   /* ✅ prevents cutoff */
+  overflow-y: auto;   /* ✅ scrolls inside if content is too tall */
+  text-align: center;
+}
+
+/* Header */
+.profile-container h1 {
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 24px;
+}
+
+.profile-pic {
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007BFF;
+  margin-bottom: 12px;  /* spacing before button */
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: #e2e2e2;
+  border-color: #999;
+}
+
+#profileUpload {
+  display: none;
+}
+
+/* Form fields */
+.profile-form {
+  text-align: left;
+}
+
+.profile-form label {
+  font-weight: 600;
+  display: block;
+  margin: 10px 0 5px;
+  color: #444;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.profile-form input:focus {
+  border-color: #007BFF;
+}
+
+/* Skills sections */
+.skills-section {
+  margin: 15px 0;
+}
+
+.skills-section h3 {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 16px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+/* Skill buttons */
+.skill-btn {
+  padding: 8px 14px;
+  border: 1px solid #007BFF;
+  background: #fff;
+  color: #007BFF;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.skill-btn:hover {
+  background: #007BFF;
+  color: #fff;
+}
+
+.skill-btn.selected {
+  background: #007BFF;
+  color: #fff;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* Profile picture upload button */
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #007BFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.upload-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.upload-btn:active {
+  transform: translateY(0);
+}
+
+/* Logo stays at top-left */
+.skillswap-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.skillswap-logo img {
+    height: 70px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .profile-container {
+    padding: 20px;
+    max-width: 95%;
+  }
+
+  .skills-grid {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
