@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Profile - SkillSwap</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body class="page-transition">
+
+    <div class="skillswap-logo">
+        <img src="/Images/SkillSwapLetteringLogoHeader.png" alt="SkillSwap Logo">
+      </div>
+
+  <!-- Profile Creation Container -->
+  <div class="profile-container">
+    <h1>Create Your Profile</h1>
+    <div class="profile-pic">
+      <img src="/Images/User Profile Icon.png" alt="Profile Preview" id="profilePreview">
+      <label for="profileUpload" class="upload-btn">Change Picture</label>
+      <input type="file" id="profileUpload" accept="image/*">
+    </div>
+
+    <!-- Form -->
+    <form class="profile-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Choose a username" required>
+
+      <!-- Skills Offered -->
+      <div class="skills-section">
+        <h3>Skills You Offer</h3>
+        <div class="skills-grid">
+          <button type="button" class="skill-btn">Web Development</button>
+          <button type="button" class="skill-btn">Graphic Design</button>
+          <button type="button" class="skill-btn">Music</button>
+          <button type="button" class="skill-btn">Cooking</button>
+        </div>
+      </div>
+
+      <!-- Skills Sought -->
+      <div class="skills-section">
+        <h3>Skills You Want to Learn</h3>
+        <div class="skills-grid">
+          <button type="button" class="skill-btn">Public Speaking</button>
+          <button type="button" class="skill-btn">Photography</button>
+          <button type="button" class="skill-btn">Coding</button>
+          <button type="button" class="skill-btn">Language Learning</button>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <button type="submit" class="submit-btn">Save Profile</button>
+    </form>
+  </div>
+
+  <script>
+    // Profile picture preview
+    const profileUpload = document.getElementById("profileUpload");
+    const profilePreview = document.getElementById("profilePreview");
+
+    profileUpload.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        profilePreview.src = URL.createObjectURL(file);
+      }
+    });
+
+    // Toggle skill button selection
+    document.querySelectorAll(".skill-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("selected");
+      });
+    });
+
+    // Page transition
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+</body>
+</html>
